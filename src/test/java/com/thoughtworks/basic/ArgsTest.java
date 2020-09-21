@@ -17,4 +17,16 @@ public class ArgsTest {
                 ,args.getArgList().toString());
     }
 
+    @Test
+    public void should_return_args_when_inputArgs() throws Exception {
+        String inputArgs = "-l true -p 8080 -d /usr/logs";
+
+        Args args = new Args(inputArgs);
+
+        assertEquals("[Arg{flag='l', value=true, type='boolean'}, " +
+                        "Arg{flag='p', value=8080, type='int'}, " +
+                        "Arg{flag='d', value=/usr/logs, type='String'}]"
+                ,args.getArgList().toString());
+    }
+
 }
